@@ -20,11 +20,6 @@ return {
     config = true,
   },
 
-  -- {
-  --   "xiyaowong/transparent.nvim",
-  --   lazy = false,
-  -- },
-
   {
     "neovim/nvim-lspconfig",
     config = function()
