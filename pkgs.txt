@@ -1,7 +1,18 @@
 sudo pacman -S arch-install-scripts base base-devel bat btop eza fd fzf git lazygit less luarocks nano nasm neofetch neovim nodejs npm python-pip ripgrep sudo tldr tmux unzip vim wget yay yay-debug zoxide zsh
 
 ^^^^^^^^^^^^^^^^^^
-instala todos os packages abaixo
+instala todos os packages listados
+
+
+------------------------------------------
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+------------------------------------------
+
+^^^^^^^^^^^^^^^^^^
+instala o yay pra repo oficial AUR
+
 
 arch-install-scripts 29-1
 base 3-2
