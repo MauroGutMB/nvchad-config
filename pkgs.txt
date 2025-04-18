@@ -1,3 +1,8 @@
+sudo pacman -S arch-install-scripts base base-devel bat btop eza fd fzf git lazygit less luarocks nano nasm neofetch neovim nodejs npm python-pip ripgrep sudo tldr tmux unzip vim wget yay yay-debug zoxide zsh
+
+^^^^^^^^^^^^^^^^^^
+instala todos os packages abaixo
+
 arch-install-scripts 29-1
 base 3-2
 base-devel 1-2
