@@ -91,5 +91,5 @@ local function open_terminal_here()
   term:toggle()
 end
 -- map do comando
-map("n", "<leader>tt", open_terminal_here, { desc = "Abrir terminal flutuante no diretório atual" })
+map("n", "<leader>tt", open_terminal_here, { desc = "Opens a floating terminal in current dir" })
 
