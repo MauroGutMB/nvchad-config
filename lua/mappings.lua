@@ -1,14 +1,27 @@
 require "nvchad.mappings"
 
--- add yours here
+-- ADICIONAR MAPPINGS ALÉM DOS PADRÔES DO nvchad
+-- Conferir os mappings padrões do NVchad em "~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua"
 
 local Terminal = require("toggleterm.terminal").Terminal
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-
+map({"i", "v"}, "jk", "<ESC>")
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+-- Identação e movimentção durante o modo visual
+
+-- Mover a seleção para baixo mantendo a indentação
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Adicionar indentação à seleção
+vim.keymap.set("v", "L", ">gv", { desc = "Indent selection" })
+vim.keymap.set("v", "H", "<gv", { desc = "Unindent selection" })
 
 
 ---------------------------------------------------------------------------------------------------------------------

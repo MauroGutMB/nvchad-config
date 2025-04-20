@@ -16,9 +16,15 @@ M.base46 = {
 
 M.nvdash = { load_on_startup = true }
 M.ui = {
-      tabufline = {
-         lazyload = false
-     }
+  tabufline = { lazyload = false
+  },
+   telescope = { style = "bordered"
+  },
+  statusline = {
+     theme = "default",
+    separator_style = "arrow",
+  }
+
 }
 
 return M
