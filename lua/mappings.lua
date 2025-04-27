@@ -6,22 +6,36 @@ require "nvchad.mappings"
 local Terminal = require("toggleterm.terminal").Terminal
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map({"i", "v"}, "jk", "<ESC>")
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+
+---------------------------------------------------------------------------------------------------------------------
+
+-- Utilitários / movimentção (Compartilhado com os padrões do NVChad)
+
+-- lazy
+map("n", "<leader>ll", ":Lazy<cr>")
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+map("i", "<C-w>", "<Esc>ewi")
+map("i", "<C-b>", "<Esc>bi")
 
 ---------------------------------------------------------------------------------------------------------------------
 
 -- Identação e movimentção durante o modo visual
 
--- Mover a seleção para baixo mantendo a indentação
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+-- Selecionar todo o arquivo 
+map("n", "vv", "ggVG", { desc = "Select all file in a archive."})
+
+-- Mover a seleção para baixo/cima mantendo a indentação
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Adicionar indentação à seleção
-vim.keymap.set("v", "L", ">gv", { desc = "Indent selection" })
-vim.keymap.set("v", "H", "<gv", { desc = "Unindent selection" })
+map("v", "L", ">gv", { desc = "Indent selection" })
+map("v", "H", "<gv", { desc = "Unindent selection" })
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -104,5 +118,4 @@ local function open_terminal_here()
   term:toggle()
 end
 -- map do comando
-map("n", "<leader>tt", open_terminal_here, { desc = "Opens a floating terminal in current dir" })
-
+map("n", "<leader>tt", open_terminal_here, { desc = "Open a floating terminal in current dir" })

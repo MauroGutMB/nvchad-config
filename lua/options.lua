@@ -1,11 +1,12 @@
 require "nvchad.options"
 
--- add yours here!
+-- OPÇÔES PERSONALIZADAS
 
+-- Variáveis do vim abreviadas
 local o = vim.o
 local op = vim.opt
 
-
+-- Opções modificadas
 o.cursorlineopt ='both'
 
 op.relativenumber = true

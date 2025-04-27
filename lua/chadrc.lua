@@ -6,23 +6,34 @@
 local M = {}
 
 M.base46 = {
-	theme = "yoru",
+	theme = "tokyodark",
 
 	hl_override = {
 		Comment = { italic = true },
 		["@comment"] = { italic = true },
+
+    LineNr = {
+    fg = "#b38b6f",
+    },
+    CursorLineNr = {
+    fg = "#ff9909",
+    bold = true,
+    },
+
 	},
 }
 
 M.nvdash = { load_on_startup = true }
+
+
 M.ui = {
   tabufline = { lazyload = false
   },
-   telescope = { style = "bordered"
+  telescope = { style = "bordered"
   },
   statusline = {
      theme = "default",
-    separator_style = "arrow",
+     separator_style = "arrow",
   }
 
 }
