@@ -15,7 +15,7 @@ local map = vim.keymap.set
 -- lazy
 map("n", "<leader>ll", ":Lazy<cr>")
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 map("i", "<C-w>", "<Esc>ewi")
