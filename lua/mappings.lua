@@ -21,6 +21,15 @@ map("i", "jk", "<ESC>")
 map("i", "<C-w>", "<Esc>ewi")
 map("i", "<C-b>", "<Esc>bi")
 
+-- split buffers vertical e horizontal
+map("n", "<leader>>", ":vnew<cr>")
+map("n", "<leader><", ":new<cr>")
+-- resize vertical e horizontal
+map("n", "<leader><left>", ":vertical resize +5<cr>")
+map("n", "<leader><right>", ":vertical resize -5<cr>")
+map("n", "<leader><up>", ":resize +5<cr>")
+map("n", "<leader><down>", ":resize -5<cr>")
+
 ---------------------------------------------------------------------------------------------------------------------
 
 -- Identação e movimentção durante o modo visual
