@@ -21,6 +21,21 @@ return {
   },
 
   {
+    "rcarriga/nvim-notify",
+    version = "*",
+    config = function ()
+      vim.notify = require("notify")
+    end,
+    lazy = false,
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = "*", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
@@ -31,7 +46,7 @@ return {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
   		ensure_installed = {
-  			"vim", "lua", "vimdoc", "c", "python"
+  			"vim", "lua", "vimdoc", "c", "python", "rust"
   		},
   	},
   },

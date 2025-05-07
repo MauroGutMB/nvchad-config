@@ -52,7 +52,7 @@ local function run_code()
   elseif file:match("%.cpp$") then
     cmd = string.format("'./%s'", outfile)
   elseif file:match("%.asm$") then
-    cmd = string.format("'./%s' ", outfile)
+    cmd = string.format("'./%s'", outfile)
   elseif file:match("%.py$") then
     cmd = string.format("python3 %s", file)
   elseif file:match("%.lua$") then

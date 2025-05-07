@@ -12,3 +12,4 @@ o.cursorlineopt ='both'
 op.relativenumber = true
 op.signcolumn = "yes"
 op.scrolloff = 15
+op.termguicolors = true
