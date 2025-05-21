@@ -30,12 +30,6 @@ return {
   },
 
   {
-    'mrcjkb/rustaceanvim',
-    version = "*", -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
-
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
@@ -50,4 +44,44 @@ return {
   		},
   	},
   },
+
+
+ -- // PLUGINS DE LSP OU CONFIGS//
+
+  {
+    "mrcjkb/rustaceanvim",
+    version = "*",
+    lazy = false, -- já é lazy por padrão, mas garantimos
+
+    config = function()
+      vim.g.rustaceanvim = {
+        server = {
+          on_attach = function()
+            -- Aqui você pode colocar atalhos personalizados se quiser
+          end,
+          settings = {
+            ["rust-analyzer"] = {
+              -- checkOnSave = {
+              --   command = "clippy",
+              -- },
+              diagnostics = {
+                enable = true,
+                disabled = {},
+                enableExperimental = true,
+              },
+              inlayHints = {
+                lifetimeElisionHints = {
+                  enable = true,
+                },
+              },
+            },
+          },
+          flags = {
+            debounce_text_changes = 100,
+          },
+        },
+      }
+    end,
+  };
+
 }

@@ -60,6 +60,8 @@ local function run_code()
     cmd = string.format("'./%s'", outfile)
   elseif file:match("%.cpp$") then
     cmd = string.format("'./%s'", outfile)
+  elseif file:match("%.rs$") then
+    cmd = string.format("'./%s'", outfile)
   elseif file:match("%.asm$") then
     cmd = string.format("'./%s'", outfile)
   elseif file:match("%.py$") then
@@ -94,6 +96,8 @@ local function compile_run()
     cmd = string.format("gcc '%s' -o '%s' -lm && './%s'", file, outfile, outfile)
   elseif file:match("%.cpp$") then
     cmd = string.format("g++ '%s' -o '%s' && './%s'", file, outfile, outfile)
+  elseif file:match("%.rs$") then
+    cmd = string.format("rustc '%s' -o '%s' && './%s'", file, outfile, outfile)
   elseif file:match("%.asm$") then
     cmd = string.format("nasm -f elf64 '%s' -o './%s.o' && ld -o '%s' '%s.o' && './%s' ", file, outfile, outfile, outfile, outfile)
   elseif file:match("%.py$") then
