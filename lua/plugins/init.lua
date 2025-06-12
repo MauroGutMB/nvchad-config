@@ -5,14 +5,14 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "ggandor/leap.nvim",
-    version = "*",
-    keys = {'s', 'S'},
-    config = function ()
-      require("leap").set_default_mappings()
-    end,
-  },
+  -- {
+  --   "ggandor/leap.nvim",
+  --   version = "*",
+  --   keys = {'s', 'S'},
+  --   config = function ()
+  --     require("leap").set_default_mappings()
+  --   end,
+  -- },
 
   {
     "akinsho/toggleterm.nvim",
