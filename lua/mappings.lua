@@ -7,6 +7,13 @@ local Terminal = require("toggleterm.terminal").Terminal
 local map = vim.keymap.set
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+-- Github Copilot macros
+
+map("n", "<leader>cp", "<cmd>Copilot panel<cr>", { desc = "Open Copilot panel" })
+map("n", "<leader>ce", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot Autocomplete " })
+map("n", "<leader>cd", "<cmd>Copilot disable<cr>", { desc = "Disable Copilot Autocomplete" })
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -66,6 +73,8 @@ local function run_code()
     cmd = string.format("'./%s'", outfile)
   elseif file:match("%.py$") then
     cmd = string.format("python3 %s", file)
+  elseif file:match("%.php$") then
+    cmd = string.format("php %s", file)
   elseif file:match("%.lua$") then
     cmd = string.format("lua %s", file)
   elseif file:match("%.sh$") then
@@ -89,7 +98,7 @@ map("n", "<leader>rf", run_code, { desc = "Run a file." })
 local function compile_run()
   local file = vim.fn.expand("%")
   local outfile = vim.fn.expand("%:r")
-  -- local cw = vim.fn.expand("%p:h")
+  local cw = vim.fn.expand("%p:h")
   local cmd = ""
 
   if file:match("%.c$") then
@@ -102,6 +111,8 @@ local function compile_run()
     cmd = string.format("nasm -f elf64 '%s' -o './%s.o' && ld -o '%s' '%s.o' && './%s' ", file, outfile, outfile, outfile, outfile)
   elseif file:match("%.py$") then
     cmd = string.format("python3 %s", file)
+  elseif file:match("%.php$") then
+    cmd = string.format("php %s", file)
   elseif file:match("%.lua$") then
     cmd = string.format("lua %s", file)
   else

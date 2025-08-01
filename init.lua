@@ -32,6 +32,16 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+
+-- custom/copilot.lua
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("Copilot disable")
+  end,
+})
+
+
 vim.schedule(function()
   require "mappings"
 end)
