@@ -62,6 +62,7 @@ local function run_code()
   local file = vim.fn.expand("%")
   local outfile = vim.fn.expand("%:r")
   local cmd = ""
+  local cw = vim.fn.expand("%:p:h")
 
   if file:match("%.c$") then
     cmd = string.format("'./%s'", outfile)
@@ -77,6 +78,8 @@ local function run_code()
     cmd = string.format("php %s", file)
   elseif file:match("%.lua$") then
     cmd = string.format("lua %s", file)
+  elseif file:match("%.java$") then
+    cmd = string.format("java %s", outfile)
   elseif file:match("%.sh$") then
     cmd = string.format("./%s", file)
   else
@@ -84,7 +87,7 @@ local function run_code()
     return
   end
 
-  local term = Terminal:new({ cmd = cmd, direction = "float", close_on_exit = false })
+  local term = Terminal:new({  cmd = cmd, direction = "float", close_on_exit = false, hidden = true })
   term:toggle()
 end
 -- map do comando
@@ -98,7 +101,7 @@ map("n", "<leader>rf", run_code, { desc = "Run a file." })
 local function compile_run()
   local file = vim.fn.expand("%")
   local outfile = vim.fn.expand("%:r")
-  local cw = vim.fn.expand("%p:h")
+  local cw = vim.fn.expand("%:p:h")
   local cmd = ""
 
   if file:match("%.c$") then
@@ -115,12 +118,14 @@ local function compile_run()
     cmd = string.format("php %s", file)
   elseif file:match("%.lua$") then
     cmd = string.format("lua %s", file)
+  elseif file:match("%.java$") then
+    cmd = string.format("javac %s && java %s", file, outfile)
   else
     vim.notify("Not a compilable/runnable File. Please verify \'mappings.lua\'.", vim.log.levels.ERROR)
     return
   end
 
-  local term = Terminal:new({ cmd = cmd, direction = "float", close_on_exit = false })
+  local term = Terminal:new({ cmd = cmd, direction = "float", close_on_exit = false, hidden = true })
   term:toggle()
 end
 -- map do comando
